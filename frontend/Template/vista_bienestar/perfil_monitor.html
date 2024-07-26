@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Monitor</title>
+    <script src="agg.js" defer></script> 
+    <link rel="stylesheet" href="style.css">
+	<script src="../generics.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo" onclick="location.href='bienestar.html'"> <img src="../img/LOGO_BLANCO_IUB.png" id="logoiub"></div>
+        <button id="logout-btn" onclick="location.href='../login/login.html'">Cerrar Sesión</button>
+    </div>
+	
+    <div class="main-content">
+        <div class="sidebar">
+            </button>
+            <button onclick="location.href='admin.html'">Ver Postulaciones</button>
+            <button onclick="location.href='modulos.html'">Gestionar módulos</button>
+            <button onclick="location.href='areas.html'">Gestionar áreas</button>
+        </div>
+        <div class="content">
+            <h2 class="title">Datos del Monitor</h2>
+            <div class="monitor-info">
+                <h3>Nombre: Juan Pérez</h3>   
+                <p>Correo Institucional: juan.perez@unibarranquilla.edu.co</p>
+                <p>Programa Académico: TP en mantenimiento de sistemas infromaticos</p>
+                <p>Sede: Plaza de la paz</p>
+                <p>Cuatrimestre: 3</p>
+                <p>Promedio: 4.5</p>
+                <p>Área: Sistemas</p>
+                <br>
+                <h3>Dejar Retroalimentación</h3>
+                <textarea id="feedback" rows="4" cols="50" placeholder="Escribe aquí..."></textarea>
+                <button onclick="enviarRetroalimentación()">Enviar</button>
+            </div>
+            
+            <h2 class="title">Horario</h2>
+            <div class="schedule-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>07:00 am - 10:00 am</th>
+                            <th>10:00 am - 01:00 pm</th>
+                            <th>01:00 pm - 04:00 pm</th>
+                            <th>04:00 pm - 07:00 pm</th>
+                            <th>07:00 pm - 10:00 pm</th>
+                        </tr>
+                    </thead>
+                    <tbody id="horario">
+                        <tr>
+                            <td >Lunes</td>
+                            <td><input type ="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Martes</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Miércoles</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Jueves</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Viernes</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

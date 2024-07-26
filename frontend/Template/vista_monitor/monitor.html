@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Perfil del Monitor</title>
+        <script src="../generics.js" defer></script>
+        <link rel="stylesheet" href="../../src/bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <header class="bg-dark p-2">
+ 			<nav class="d-flex py-2 px-1 justify-content-end align-items-center shadow-sm">
+				<span class="text-white" id="monitor-name">Nombre del monitor (Monitor)</span>
+				<button class="btn btn-primary ms-4" id="logout-btn" onclick="location.href='../login/login.html'">Cerrar Sesión</button>
+			</nav>
+        </header>
+
+		<main class="container mx-auto mt-4">
+			<section class="mb-4"> <!-- personal information -->
+				<h2 class="mb-3">Datos Personales</h2>
+				<ul class="list-group">
+					<li class="list-group-item fw-bolder">Correo Institucional: <span class="fw-medium"> juan.perez@unibarranquilla.edu</span></li>
+					<li class="list-group-item fw-bolder">Programa Académico: <span class="fw-medium"> Ingeniería de Sistemas</span></li>
+					<li class="list-group-item fw-bolder">Cuatrimestre: <span class="fw-medium"> 3</span></li>
+					<li class="list-group-item fw-bolder">Promedio: <span class="fw-medium"> 4.5</span></li>
+					<li class="list-group-item fw-bolder">Área: <span class="fw-medium"> Sistemas</span></li>
+				</ul>
+			</section>
+
+			<section class="mb-4">
+				<h2>Retroalimentación</h2>
+
+				<div>
+					<!-- all the feedback will be suplyied via dinamically -->
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">26/07/24</h5>
+							<h6 class="card-subtitle mb-2 text-body-secondary">Nombre de bienestar</h6>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						</div>
+					</div> 
+				</div>
+			</section>
+
+			<section>
+				<h2>Horario</h2>
+
+				<div class="hours-form">
+					<table>
+						<thead>
+							<tr>
+								<th>Día</th>
+								<th>08:00 - 10:00</th>
+								<th>10:00 - 12:00</th>
+								<th>12:00 - 14:00</th>
+								<th>14:00 - 16:00</th>
+								<th>16:00 - 18:00</th>
+							</tr>
+						</thead>
+						<tbody id="horario">
+							<tr>
+								<td>Lunes</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+							</tr>
+							<tr>
+								<td>Martes</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+							</tr>
+							<tr>
+								<td>Miércoles</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+							</tr>
+							<tr>
+								<td>Jueves</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+							</tr>
+							<tr>
+								<td>Viernes</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" /></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+    </body>
+</html>
+ 

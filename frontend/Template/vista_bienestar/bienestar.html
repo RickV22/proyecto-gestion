@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión del Personal de Bienestar</title>
+    <link rel="stylesheet" href="../../src/bootstrap/css/bootstrap.css">
+	<script src="../../src/bootstrap/js/bootstrap.js"></script>
+	<script src="../../src/axios-min.js"></script>
+	<script src="./bienestar.js" defer></script>
+	<script src="../generics.js" defer></script>
+</head>
+<body>
+	<header class="bg-dark p-2">
+		<nav class="d-flex py-2 px-1 justify-content-end align-items-center shadow-sm">
+		   <span class="text-white" id="monitor-name">Nombre del bienestar (Bienestar-IUB)</span>
+		   <button class="btn btn-primary ms-4" id="logout-btn" onclick="location.href='../login/login.html'">Cerrar Sesión</button>
+	   </nav>
+   </header>
+
+   <main class="container-fluid mx-auto row mt-5">
+		<section class="col-lg-2 d-block">
+			<button class="btn btn-outline-secondary border-1 rounded-1 mb-2" data-show="applications">Ver Postulaciones</button>
+			<button class="btn btn-outline-secondary border-1 rounded-1 mb-2" data-show="modules">Gestionar Módulos</button>
+			<button class="btn btn-outline-secondary border-1 rounded-1 mb-2" data-show="areas">Gestionar Áreas</button>
+		</section>
+
+		<section class="show-sect col-lg-10" id="apply"> <!-- postulaciones -->
+			<h2>Postulaciones de Estudiantes</h2>
+
+			<div class="table-responsive">
+
+				<table class="table text-center table-sm">
+					<thead>
+						<tr>
+							<th scope="col" class="fs-6">Nombre</th>
+							<th scope="col" class="fs-6">Correo</th>
+							<th scope="col" class="fs-6">Programa</th>
+							<th scope="col" class="fs-6">Cuatrimestre</th>
+							<th scope="col" class="fs-6">Promedio</th>
+							<th scope="col" class="fs-6">Tipo de Monitoria</th>
+							<th scope="col" class="fs-6">Módulo/Área</th>
+							<th scope="col" class="fs-6">Acciones</th>
+						</tr>
+					</thead>
+	
+					<tbody class="postulation-space">
+					</tbody>
+				</table>
+			</div>
+		
+			
+			<!-- accept postulations -->
+			<div class="modal fade" id="accept" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="acceptLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Aceptar propuesta</h1>
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>¿Esta seguro de aceptar esta propuesta?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary accept-postulation-btn" data-bs-dismiss="modal">Aceptar</button>
+					  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- Decline postulations -->
+			<div class="modal fade" id="decline" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delclineLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Rechazar propuesta</h1>
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>¿Estas seguro de rechazar esta propuesta?</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger decline-postulation-btn" data-bs-dismiss="modal">Rechazar</button>
+						<button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+		</section>
+
+		<section class="show-sect d-none col-lg-10" id="modules"> <!-- monitores academicos -->
+			<h2 class="mb-4">Gestionar Monitores Academicos</h2>
+
+            <div class="p-3 d-flex justify-content-between align-items-center border border-1 border-black-50">
+                <div class="module-content">
+                    <h3 class="mb-3">Juan Pérez</h3>
+                    <p class="fw-bolder">Módulo: <span class="fw-medium">Cálculo</span></p>
+                    <p class="fw-bolder">correo: <span class="fw-medium">jperez@unibarranquilla.edu.co</span></p>
+                </div>
+                <button class="btn btn-primary">Ver Monitor</button>
+            </div>
+            <div class="p-3 d-flex justify-content-between align-items-center border border-1 border-black-50">
+				<div class="module-content">
+					<h3 class="mb-3">María Gómez</h3>
+                    <p class="fw-bolder">Módulo: <span class="fw-medium">Álgebra y Trigonometría</span></p>
+					<p class="fw-bolder">correo: <span class="fw-medium">mgomez@unibarranquilla.edu.co</span></p>
+                </div>
+                <button class="btn btn-primary">Ver Monitor</button>
+            </div>
+		</section>
+
+		<section class="show-sect d-none col-lg-10" id="areas"> <!-- monitores administrativos -->
+			<h2 class="mb-3">Gestionar Monitores Administrativos</h2>
+            
+			<div class="p-3 d-flex justify-content-between align-items-center border border-1 border-black-50">
+                <div class="module-content">
+                    <h3 class="mb-3">Juan Pérez</h3>
+                    <p class="fw-bolder">correo: <span class="fw-medium">jperez@unibarranquilla.edu.co</span></p>
+                    <p class="fw-bolder">Area: <span class="fw-medium">Sistemas</span></p>
+                </div>
+                <button class="btn btn-primary">Ver Monitor</button>
+            </div>
+            <div class="p-3 d-flex justify-content-between align-items-center border border-1 border-black-50">
+				<div class="module-content">
+					<h3 class="mb-3">María Gómez</h3>
+					<p class="fw-bolder">correo: <span class="fw-medium">jperez@unibarranquilla.edu.co</span></p>
+					<p class="fw-bolder">Area: <span class="fw-medium">Admisiones</span></p>
+                </div>
+                <button class="btn btn-primary">Ver Monitor</button>
+            </div>
+		</section>
+   </main>
+</body>
+</html>
