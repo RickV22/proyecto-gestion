@@ -23,7 +23,7 @@ def get_users():
 		return jsonify(payload)
 	except Exception as e:
 		print(e)
-		return jsonify({"msg": e})
+		return jsonify({"msg": str(e)})
 
 """ this is for the postulation interactions """
 
@@ -49,7 +49,7 @@ def get_postulaciones(status):
 		return jsonify(payload)
 	except Exception as e:
 		print(e)
-		return jsonify({"msg": e})
+		return jsonify({"msg": str(e)})
 
 @main.route('/add_postulacion', methods=['POST'])
 def add_postulacion():
@@ -73,7 +73,7 @@ def add_postulacion():
 	
 	except Exception as e:
 		print(e)
-		return jsonify({"msg": e})
+		return jsonify({"msg": str(e)})
 
 @main.route('/setPostulationStatus/<string:email>/<string:status>', methods=["PUT"])
 def setPostulationStatus(email, status):
@@ -89,8 +89,37 @@ def setPostulationStatus(email, status):
         return jsonify({"msg": "User updated successfully"})
     except Exception as e:
         print(e)
-        return jsonify({"msg": str(e)}), 500
+        return jsonify({"msg": str(e)})
 
+@main.route('/createMonitor', methods=["POST"])
+def createMonitor():
+	try:
+		data = request.get_json()
+		email = data["email"]
+
+		cur = mysql.connection.cursor()
+
+		cur.execute("START TRANSACTION;")
+        # SQL query to insert data from postulaciones to postulaciones_archivo
+		cur.execute("""
+		    INSERT INTO monitores (nombre, apellido, correo,tipo_monitoria, cuatrimestre, id_postulaciones)
+		    SELECT nombre, apellido, correo, tipo_monitoria, cuatrimestre, id
+		    FROM postulaciones
+		    WHERE correo = %s;
+		""", (email,))
+
+		cur.execute("""
+		    INSERT INTO usuarios (nombre, apellido, correo, contraseña, id_rol)
+		    SELECT nombre, apellido, correo, "contraseña", 1
+		    FROM monitores
+		    WHERE correo = %s;
+		""", (email,))
+
+		mysql.connection.commit()
+		return jsonify({'message': 'Monitor created successfully'})
+	except Exception as e:
+		print(e)
+		return jsonify({"msg": str(e)})
 
 """ this is for the admin interactions """
 

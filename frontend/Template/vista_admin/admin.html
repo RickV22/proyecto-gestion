@@ -64,7 +64,7 @@
 
 		<section class="show-sect col-lg-10 px-3" id="show-users"> <!-- Display users  -->
             <h2 class="mb-3">Usuarios registrados</h2> 
-			<div class="table-responsive-sm">
+			<div class="table-responsive-md">
 				<table class="table table-sm text-center">
 					<thead>
 						<tr>
@@ -159,7 +159,7 @@
 			 	then you pass the data to the monitor table, then you make sure that 
 				monitor has an email and user to log in 
 			-->
-			<div class="table-responsive-sm">
+			<div class="table-responsive-md">
 				<table class="table table-sm text-center">
 					<thead>
 						<tr>
@@ -175,6 +175,27 @@
 						<!-- Aqui van los usuarios cargados desde la base de datos -->
 					</tbody>
 				</table>
+			</div>
+
+			<div class="modal fade" id="createMonitor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createMonitorLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear monitor</h1>
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>¿Estas seguro de crear este monitor?</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary create-btn" data-bs-target="#showTheUserInfo" data-bs-toggle="modal">Crear</button>
+						<button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->		  
 		</section>
     </main>
 </body>
